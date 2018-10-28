@@ -20,7 +20,7 @@ const server = app.listen(PORT, () => {
 });
 
 
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "dist"), { maxAge: 86400000 }));
 
 
 app.use(cors())
