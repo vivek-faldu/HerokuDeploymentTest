@@ -6,6 +6,7 @@ var usersRoute = require("./routes/users");
 var preferencesRoute = require("./routes/preferences");
 var passport = require('passport');
 var cors = require('cors');
+const path = require("path");
 var cookieParser = require("cookie-parser");
 
 require('./config/passport');
@@ -19,7 +20,7 @@ const server = app.listen(PORT, () => {
 });
 
 
-app.use('/static', express.static('./dist'));
+app.use(express.static(path.join(__dirname, "dist")));
 
 
 app.use(cors())
