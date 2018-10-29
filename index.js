@@ -19,7 +19,7 @@ const server = app.listen(PORT, () => {
   console.log("Connected to port:" + PORT);
 });
 
-app.use(express.static('./dist/'));
+app.use(express.static(path.join(__dirname, "dist")));
 
 app.get('/*', function (req, res) {
 
