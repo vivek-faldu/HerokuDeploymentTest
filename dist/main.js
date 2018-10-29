@@ -1553,7 +1553,7 @@ var AppModule = /** @class */ (function () {
                 _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardModule"],
                 _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(routes),
+                _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(routes, { useHash: true }),
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatToolbarModule"],
                 _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"],
