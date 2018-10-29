@@ -19,8 +19,14 @@ const server = app.listen(PORT, () => {
   console.log("Connected to port:" + PORT);
 });
 
+app.use(express.static('./dist/'));
 
-app.use(express.static(path.join(__dirname, "dist"), { maxAge: 86400000 }));
+app.get('/*', function (req, res) {
+
+  res.sendFile(path.join(__dirname, '/dist/index.html'));
+});
+
+//app.use(express.static(path.join(__dirname, "dist"), { maxAge: 86400000 }));
 
 
 app.use(cors())
