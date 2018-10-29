@@ -21,10 +21,6 @@ const server = app.listen(PORT, () => {
 
 app.use(express.static(path.join(__dirname, "dist")));
 
-app.get('/static', function (req, res) {
-
-  res.sendFile(path.join(__dirname, '/dist/index.html'));
-});
 
 //app.use(express.static(path.join(__dirname, "dist"), { maxAge: 86400000 }));
 
@@ -42,6 +38,10 @@ app.use("/auth", authUserRoute);    //uncomment this on usage. Use this for hand
 app.use("/users", usersRoute);      //uncomment this on usage. Use this for handling REGISTER,PROFILE INFO, UPDATING PROFILE INFO. Use post method to register and get for getting info under same route 
 app.use("/preferences", preferencesRoute);
 
+app.get('/*', function (req, res) {
+
+  res.sendFile(path.join(__dirname, '/dist/index.html'));
+});
 
 //error handlers
 
