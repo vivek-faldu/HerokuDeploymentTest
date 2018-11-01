@@ -41,7 +41,7 @@ module.exports = "\n\n/* A CSS class for properties of mat-card*/\n.movie-card {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"movie-card\">\n  <mat-card-header>\n    <div mat-card-avatar class=\"movie-header-image\"></div>\n    <mat-card-title> <strong>{{movie.title}}</strong></mat-card-title>\n    <mat-card-subtitle> {{movie.id}}</mat-card-subtitle>\n  </mat-card-header>\n  <img mat-card-image src= {{movie.poster_path}}  alt=\"Movie Image\">\n  \n  <mat-card-actions>\n    <button class = \"btn btn-success\" (click)=\"getDetails()\">Details</button>\n    <button class = \"btn btn-primary\">Add to Wishlist</button>\n  </mat-card-actions>\n</mat-card>\n\n\n"
+module.exports = "<mat-card class=\"movie-card\">\n  <mat-card-header>\n    <div mat-card-avatar class=\"movie-header-image\"></div>\n    <mat-card-title> <strong>{{movie.title}}</strong></mat-card-title>\n    <mat-card-subtitle> {{movie.id}}</mat-card-subtitle>\n  </mat-card-header>\n  <img mat-card-image src= {{movie.poster_path}}  alt=\"Movie Image\">\n  \n  <mat-card-actions>\n    <button class = \"btn btn-danger\" (click)=\"getDetails()\">Details</button>\n  </mat-card-actions>\n</mat-card>\n\n\n"
 
 /***/ }),
 
@@ -151,10 +151,10 @@ var MovieSlideComponent = /** @class */ (function () {
     function MovieSlideComponent() {
         //array of popular movies that needs to be seen on slider.
         this.popularMovies = [
-            { sNumber: 1, imageUrl: "https://3.bp.blogspot.com/-1hXvJeWAWGY/WUDHSFbd4HI/AAAAAAAAAOc/9NvGkXxRGlERV8VSWtw7-CVw-YYTfmsKACLcBGAs/s1600/A153L.jpg" },
-            { sNumber: 2, imageUrl: "https://cms-assets.tutsplus.com/uploads/users/166/posts/29098/final_image/Aquaman%20Inspired%20Text%20Effect%20-%20850.jpg" },
-            { sNumber: 3, imageUrl: "https://3.bp.blogspot.com/-1hXvJeWAWGY/WUDHSFbd4HI/AAAAAAAAAOc/9NvGkXxRGlERV8VSWtw7-CVw-YYTfmsKACLcBGAs/s1600/A153L.jpg" },
-            { sNumber: 4, imageUrl: "https://cms-assets.tutsplus.com/uploads/users/166/posts/29098/final_image/Aquaman%20Inspired%20Text%20Effect%20-%20850.jpg" }
+            { sNumber: 1, imageUrl: "https://ohmy.disney.com/wp-content/uploads/2018/04/solo-thumb.jpg" },
+            { sNumber: 2, imageUrl: "https://i.ytimg.com/vi/XsGs_WvAQxw/maxresdefault.jpg" },
+            { sNumber: 3, imageUrl: "https://i2.wp.com/www.ageratingjuju.com/wp-content/uploads/2018/08/A-Simple-Favor-Age-Rating-2018-Movie-Poster-Images-and-Wallpapers.jpg?fit=1802%2C944&ssl=1" },
+            { sNumber: 4, imageUrl: "https://cdn.traileraddict.com/content/screencap/121677.jpg" }
         ];
         this.currentMovie = this.popularMovies.find(function (x) { return x.sNumber === 1; });
     }
@@ -213,6 +213,216 @@ var MovieSlideComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], MovieSlideComponent);
     return MovieSlideComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/Components/activation/activation.component.html":
+/*!*****************************************************************!*\
+  !*** ./src/app/Components/activation/activation.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  {{successmessage}} <br><br>\n  {{redirectmessage}}\n</p>"
+
+/***/ }),
+
+/***/ "./src/app/Components/activation/activation.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/Components/activation/activation.component.ts ***!
+  \***************************************************************/
+/*! exports provided: ActivationComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActivationComponent", function() { return ActivationComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var _Services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Services/authentication.service */ "./src/app/Services/authentication.service.ts");
+/* harmony import */ var rxjs_add_operator_filter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/add/operator/filter */ "./node_modules/rxjs/_esm5/add/operator/filter.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ActivationComponent = /** @class */ (function () {
+    function ActivationComponent(route, authenticationService, router) {
+        this.route = route;
+        this.authenticationService = authenticationService;
+        this.router = router;
+    }
+    ActivationComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.queryParams.filter(function (params) { return params.code; }).subscribe(function (params) {
+            console.log(params); // {order: "popular"}
+            _this.code = params.code;
+            console.log(_this.code); // popular
+            _this.authenticationService
+                .activate(_this.code)
+                .subscribe(function (response) {
+                console.log(response);
+                _this.successmessage = response.message;
+                _this.redirectmessage = "redirecting you to home page....";
+                setTimeout(function () {
+                    _this.router.navigate(["/home"]);
+                }, 2000);
+            });
+        });
+    };
+    ActivationComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: "app-activation",
+            template: __webpack_require__(/*! ./activation.component.html */ "./src/app/Components/activation/activation.component.html")
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _Services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], ActivationComponent);
+    return ActivationComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/Components/admin-manage/admin-manage.component.css":
+/*!********************************************************************!*\
+  !*** ./src/app/Components/admin-manage/admin-manage.component.css ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/Components/admin-manage/admin-manage.component.html":
+/*!*********************************************************************!*\
+  !*** ./src/app/Components/admin-manage/admin-manage.component.html ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\" style=\"height:220px;\">\n  <div>\n    <h3>Send Email to Registered users</h3>\n  </div>\n  <button mat-raised-button color=\"primary\" (click)=\"sendEmails()\">Send Emails</button>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/Components/admin-manage/admin-manage.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/Components/admin-manage/admin-manage.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: AdminManageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminManageComponent", function() { return AdminManageComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var _Services_admin_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Services/admin.service */ "./src/app/Services/admin.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AdminManageComponent = /** @class */ (function () {
+    function AdminManageComponent(adminService) {
+        this.adminService = adminService;
+    }
+    AdminManageComponent.prototype.ngOnInit = function () {
+    };
+    AdminManageComponent.prototype.sendEmails = function () {
+        this.adminService.sendEmails();
+    };
+    AdminManageComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-admin-manage',
+            template: __webpack_require__(/*! ./admin-manage.component.html */ "./src/app/Components/admin-manage/admin-manage.component.html"),
+            styles: [__webpack_require__(/*! ./admin-manage.component.css */ "./src/app/Components/admin-manage/admin-manage.component.css")]
+        }),
+        __metadata("design:paramtypes", [_Services_admin_service__WEBPACK_IMPORTED_MODULE_1__["AdmminService"]])
+    ], AdminManageComponent);
+    return AdminManageComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/Components/error-dialog/error-dialog.component.html":
+/*!*********************************************************************!*\
+  !*** ./src/app/Components/error-dialog/error-dialog.component.html ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div matDialogTitle>\n  Error\n</div>\n<hr>\n<div matDialogContent>\n  {{data.message}}\n</div>\n<hr>\n<div class=\"row justify-content-end\" matDialogActions>\n\n  <button style=\"outline:none;\" mat-raised-button *ngIf=\"data.ok\" (click)=\"closeDialog()\">OK</button>\n  <button mat-raised-button *ngIf=\"data.cancel\" (click)=\"closeDialog()\">Cancel</button>\n\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/Components/error-dialog/error-dialog.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/Components/error-dialog/error-dialog.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: ErrorDialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorDialogComponent", function() { return ErrorDialogComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var ErrorDialogComponent = /** @class */ (function () {
+    function ErrorDialogComponent(data, dialogRef) {
+        this.data = data;
+        this.dialogRef = dialogRef;
+    }
+    ErrorDialogComponent.prototype.ngOnInit = function () {
+    };
+    ErrorDialogComponent.prototype.closeDialog = function () {
+        this.dialogRef.close();
+    };
+    ErrorDialogComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-error-dialog',
+            template: __webpack_require__(/*! ./error-dialog.component.html */ "./src/app/Components/error-dialog/error-dialog.component.html")
+        }),
+        __param(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [Object, _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"]])
+    ], ErrorDialogComponent);
+    return ErrorDialogComponent;
 }());
 
 
@@ -289,7 +499,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/*CSS class to create rows for movie cards*/\n.band {\n    margin: 5px auto;\n    display: -ms-grid;\n    display: grid;\n    -ms-grid-columns: 1fr 1fr 1fr 1fr;\n        grid-template-columns: 1fr 1fr 1fr 1fr;\n    -ms-grid-rows: auto;\n        grid-template-rows: auto;\n    grid-gap: 20px;\n  }"
+module.exports = "/*CSS class to create rows for movie cards*/\n.band {\n    margin: 5px auto;\n    display: -ms-grid;\n    display: grid;\n    -ms-grid-columns: 1fr 1fr 1fr 1fr;\n        grid-template-columns: 1fr 1fr 1fr 1fr;\n    -ms-grid-rows: auto;\n        grid-template-rows: auto;\n    grid-gap: 20px;\n  }\nngb-pagination ::ng-deep ul > li > a {\n    color: black;\n}\nngb-pagination ::ng-deep ul > li.active > a {\n    color: white;\n    background-color: #dc3545 !important;\n}"
 
 /***/ }),
 
@@ -300,7 +510,7 @@ module.exports = "/*CSS class to create rows for movie cards*/\n.band {\n    mar
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The division below handles movie slider.-->\n<div *ngIf=\"showSlider\">\n  <app-movie-slide></app-movie-slide>\n</div>\n<br>\n<div class=\"band container\">\n  <div *ngFor=\"let movie of movies\">\n    <app-movie-card [movie]=movie> </app-movie-card>\n  </div>\n</div>"
+module.exports = "<!--The division below handles movie slider.-->\n<div *ngIf=\"showSlider\">\n  <app-movie-slide></app-movie-slide>\n</div>\n<br>\n<div class=\"band container\">\n  <div *ngFor=\"let movie of movies\">\n    <app-movie-card [movie]=movie> </app-movie-card>\n    </div>\n</div>\n<div class=\"container mt-4\">\n  <ngb-pagination\n    class = \"d-flex justify-content-end\"\n    [collectionSize] = \"1000\"\n    [maxSize] = \"7\"\n    [pageSize] = \"20\"\n    [(page)] = \"page\"\n    [boundaryLinks] = \"true\"\n    (pageChange) = \"loadPage($event)\"\n    >\n  </ngb-pagination>\n</div>\n  "
 
 /***/ }),
 
@@ -335,6 +545,7 @@ var HomeComponent = /** @class */ (function () {
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.showSlider = true;
+        this.page = 1;
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -348,7 +559,7 @@ var HomeComponent = /** @class */ (function () {
         }
         else {
             this.showSlider = true;
-            this.movieService.getMovies().subscribe(function (response) {
+            this.movieService.getMovies(this.page).subscribe(function (response) {
                 _this.movies = response;
             });
         }
@@ -357,8 +568,9 @@ var HomeComponent = /** @class */ (function () {
         var _this = this;
         this.activatedRoute.params.subscribe(function (params) {
             var movieName = params["name"];
+            var details = params["details"];
             _this.movieService
-                .getSearchedMovieList(movieName)
+                .getSearchedMovieList(movieName, details)
                 .subscribe(function (res) {
                 _this.movies = res;
             });
@@ -366,9 +578,21 @@ var HomeComponent = /** @class */ (function () {
     };
     HomeComponent.prototype.upcomingMovies = function () {
         var _this = this;
-        this.movieService.getUpcomingMovieList().subscribe(function (res) {
+        this.movieService.getUpcomingMovieList(this.page).subscribe(function (res) {
             _this.movies = res;
         });
+    };
+    HomeComponent.prototype.loadPage = function (id) {
+        var _this = this;
+        if (this.router.url.includes('/coming_soon'))
+            this.movieService.getUpcomingMovieList(id).subscribe(function (response) {
+                _this.movies = response;
+            });
+        else if (this.router.url.includes('/home'))
+            this.movieService.getMovies(id).subscribe(function (response) {
+                _this.movies = response;
+            });
+        window.scrollTo(0, 0);
     };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -491,7 +715,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".td-config{\n    width: 200px;\n    position: relative;\n    top: 0px;\n}\n\n.scroller {\n    overflow: scroll;\n    height: 50px;\n}"
+module.exports = " a:not([href]):not([tabindex]) {\n\t color: white;\n }\n\n.spinner {\n\theight: 1250px;\n\ttop: 50%;\n\tjustify-content: center;\n}\n\nimg {\n\twidth: 90%;\n}\n\n.poster {\n\tmargin-left: 8%;\n}\n\n.booking {\n\tfloat: left;\n\tmargin-right: 10%;\n\tmargin-top: 3%;\n\tbackground-color: maroon;\n\tcursor: pointer;\n\tfont-size: 12px;\n\ttext-align: center;\n}\n\n.genres {\n\tfont-family: \"Times New Roman\", Times, serif;\n\tmargin-left: 2%;\n}\n\n.tagline {\n\tfont-style: italic;\n\tmargin-left: 2%\n}\n\n.info {\n\tmargin-left: 2%;\n}\n\n.td-config{\n    width: 200px;\n    position: relative;\n    top: 0px;\n}\n\n.scroller {\n    overflow: scroll;\n    height: 50px;\n}\n\n.suggest {\n\tmargin-top: 2%;\n\tmargin-left: 6%;\n\tmargin-right: 6%;\n}\n\n.scroll_vertical{\n\toverflow-y: auto;\n}\n\n#booker {\n\tvisibility: hidden;\n}"
 
 /***/ }),
 
@@ -502,7 +726,7 @@ module.exports = ".td-config{\n    width: 200px;\n    position: relative;\n    t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"display: flex;\">\n    <div><img src={{movie.poster_path}}></div>\n\n    <div style=\"background-color:white;color: black;padding:10px;\">\n        <table>\n            <tr>\n                <td align=\"right\" class=\"td-config\"><b>Movie name :</b></td>\n                <td>\n                    <font color=\"black\">&nbsp;{{movie.original_title}}</font>\n                </td>\n            </tr>\n            <tr *ngIf=\"movie.tagline\">\n                <td align=\"right\" class=\"td-config\"><b>Tag line :</b></td>\n                <td>\n                    <font color=\"black\">&nbsp;{{movie.tagline}}</font>\n                </td>\n            </tr>\n            <tr>\n                <td align=\"right\" class=\"td-config\"><b>Genres :</b></td>\n                <td><span *ngFor=\"let genre of movie.genres; let isLast=last\">\n                        <font color=\"black\">{{genre.name}}{{isLast ? '' : '/'}}</font>\n                    </span>\n                </td>\n            </tr>\n            <tr>\n                <td align=\"right\" class=\"td-config\"><b>Original Language :</b></td>\n                <td>\n                    <font color=\"black\">&nbsp;{{movie.original_language}}</font>\n                </td>\n            </tr>\n            <tr>\n                <td align=\"right\" valign=\"top\" class=\"td-config\"><b>Star Cast :</b></td>\n                <td>\n                    <div class=\"scroller\"><span *ngFor=\"let cast of movie.cast; let isLast=last\">\n                            <font color=\"black\">{{cast.name}}{{isLast ? '' : ', '}}</font>\n                        </span></div>\n                </td>\n            </tr>\n            <tr>\n                <td align=\"right\" valign=\"top\" class=\"td-config\"><b>Producer :</b></td>\n                <td><span *ngFor=\"let crew of movie.crew\">\n                        <font color=\"black\" *ngIf=\"crew.job=='Producer'\">{{crew.name}},</font>\n                    </span>\n                </td>\n            </tr>\n            <tr>\n                <td align=\"right\" valign=\"top\" class=\"td-config\"><b>Director :</b></td>\n                <td><span *ngFor=\"let crew of movie.crew\">\n                        <font color=\"black\" *ngIf=\"crew.job=='Director'\">{{crew.name}},</font>\n                    </span>\n                </td>\n            </tr>\n            <tr>\n                <td align=\"right\" class=\"td-config\"><b>Release Date :</b></td>\n                <td>\n                    <font color=\"black\">&nbsp;{{movie.release_date | date}}</font>\n                </td>\n            </tr>\n            <tr>\n                <td align=\"right\" class=\"td-config\"><b>Vote average :</b></td>\n                <td>\n                    <font color=\"black\">&nbsp;{{movie.vote_average}}</font>\n                </td>\n            </tr>\n            <tr>\n                <td align=\"right\" class=\"td-config\"><b>Vote count :</b></td>\n                <td>\n                    <font color=\"black\">&nbsp;{{movie.vote_count}}</font>\n                </td>\n            </tr>\n        </table>\n        <br>\n        <b>Overview:</b>\n        <p>\n            <font color=\"black\">{{movie.overview}}</font>\n        </p>\n        <div class=\"container row\">\n            <app-time-and-theatre></app-time-and-theatre>\n        </div>\n    </div>\n</div>\n\n<div>\n    <app-similar-movies [movieID]=\"movie_id\"></app-similar-movies>\n</div>"
+module.exports = "<div class=\"container\">\n    <div class=\"row justify-content-center spinner\" *ngIf=\"!movie\">\n        <mat-spinner [color]=\"color\" [diameter]=\"50\"></mat-spinner>\n    </div>\n</div>\n\n<div *ngIf=\"movie\" class=\"container\">\n    <div class=\"row\">\n        <div class=\"col-md-3 poster\">\n            <img src={{movie.poster_path}}>\n        </div>\n\n        <div class=\"col-md-7\">\n\n            <font size=\"18\" color=\"black\">&nbsp;{{movie.original_title}}</font>\n\n            <span class=\"language\">&nbsp; {{movie.original_language}}</span>\n\n            <div class=\"row tagline\">\n                <p>{{movie.tagline}}</p>\n            </div>\n\n            <div class=\"row genres\">\n                <span *ngFor=\"let genre of movie.genres; let isLast=last\">\n                    <p>{{genre.name}}{{isLast ? '' : '/'}}</p>\n                </span>\n            </div>\n\n            <div class=\"row tagline\">\n                <p>{{movie.overview}}</p>\n            </div>\n\n            <div class=\"row info\">\n                <b>Release Date</b>\n                <p>&nbsp; {{movie.release_date | date}}</p>\n            </div>\n            <div class=\"row info\">\n                <b>Votes</b>\n                <p>&nbsp; {{movie.vote_count}}</p>\n\n                <b>&nbsp; Average</b>\n                <p>&nbsp; {{movie.vote_average}}</p>\n            </div>\n\n            <div class=\"row info\">\n                <b>Cast</b>\n                <div class=\"scroller\">\n                    <span *ngFor=\"let cast of movie.cast; let isLast=last\">\n                        <font>{{cast.name}}{{isLast ? '' : ', '}}</font>\n                    </span>\n                </div>\n            </div>\n\n            <a class=\"btn btn-primar booking info\" role=\"button\" (click)=openDialog()>Find Shows</a>\n\n        </div>\n    </div>\n    <div class=\"row suggest\">\n        <div class=\"scroll_vertical\">\n            <app-similar-movies [movieID]=\"movie_id\"></app-similar-movies>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -519,6 +743,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var _Services_movie_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Services/movie.service */ "./src/app/Services/movie.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _time_and_theatre_time_and_theatre_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../time-and-theatre/time-and-theatre.component */ "./src/app/Components/time-and-theatre/time-and-theatre.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -531,10 +757,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var MovieDetailsComponent = /** @class */ (function () {
-    function MovieDetailsComponent(movieService, route) {
+    function MovieDetailsComponent(movieService, route, router, dialog) {
         this.movieService = movieService;
         this.route = route;
+        this.router = router;
+        this.dialog = dialog;
+        this.color = "warn";
+        this.router.routeReuseStrategy.shouldReuseRoute = function () { return false; };
     }
     MovieDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -543,13 +775,22 @@ var MovieDetailsComponent = /** @class */ (function () {
             _this.movie = response;
         });
     };
+    MovieDetailsComponent.prototype.openDialog = function () {
+        var dialogReference = this.dialog.open(_time_and_theatre_time_and_theatre_component__WEBPACK_IMPORTED_MODULE_4__["TimeAndTheatreComponent"], {
+            width: '780px',
+            height: '500px',
+        });
+        dialogReference.afterClosed().subscribe(function (result) { console.log("dialog was closed"); });
+        return false;
+    };
     MovieDetailsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-movie-details',
             template: __webpack_require__(/*! ./movie-details.component.html */ "./src/app/Components/movie-details/movie-details.component.html"),
             styles: [__webpack_require__(/*! ./movie-details.component.css */ "./src/app/Components/movie-details/movie-details.component.css")]
         }),
-        __metadata("design:paramtypes", [_Services_movie_service__WEBPACK_IMPORTED_MODULE_1__["MovieService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+        __metadata("design:paramtypes", [_Services_movie_service__WEBPACK_IMPORTED_MODULE_1__["MovieService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]])
     ], MovieDetailsComponent);
     return MovieDetailsComponent;
 }());
@@ -601,7 +842,7 @@ module.exports = ".navigation{\n\twidth: 100%;\n\tbackground-color: black;\n\n}\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid navigation\">\n  <div class=\"row\">\n    <div class=\"col-md-2 col-sm-2\">\n      <div class=\"logo\" (click)=\"navigateToHome()\">FindMyShow</div>\n    </div>\n    <div class=\"col-md-8 col-sm-8\">\n      <div class=\"form-group search-box\">\n        <input type=\"text\" class=\"form-control\" id=\"search_subject\" placeholder=\"Search for movies\" (keyup.enter)=\"searchMovies(seachForm.value)\"\n          [formControl]=\"seachForm\">\n      </div>\n    </div>\n    <div class=\"col-md-2 col-sm-2 search-content\">\n      <a class=\"btn btn-primary search-button\" role=\"button\" (click)=\"searchMovies(seachForm.value)\">Search</a>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"navbar\">\n      <nav class=\"navset\">\n        <a class=\"nav-li\" href=\"/home\">Home</a>\n        <a class=\"nav-li\" href=\"/coming_soon\">Coming Soon</a>\n        <a class=\"nav-li\" href=\"/wish_list\">Wish List</a>\n        <a class=\"nav-li\" href=\"/latest\">Latest</a>\n      </nav>\n      <div class=\"log\" *ngIf=\"!this.authenticationService.isLoggedIn()\">\n        <button class=\"btn btn-primary login-button\" (click)=\"openDialog()\">Log In</button>\n      </div>\n      <div class=\"signup\" *ngIf=\"!this.authenticationService.isLoggedIn()\">\n        <button class=\"btn btn-primary login-button\" (click)=\"openSignUp()\">Sign Up</button>\n      </div>\n      <div class=\"nav dropdown\" *ngIf=\"this.authenticationService.isLoggedIn()\">\n        <button class=\"btn btn-danger user-button dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n          aria-expanded=\"false\" (click)=\"toggleDropdown()\">\n          hi, {{this.authenticationService.getUser().firstName}}!\n        </button>\n        <div class=\"dropdown-menu\" id=\"dropdownMenuButton\">\n          <a class=\"dropdown-item nav-li\" [routerLink]=\"['preferences']\">Set Preferences</a>\n          <a class=\"dropdown-item nav-li\" href=\"#\" (click)=\"logOut()\">Log out</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container-fluid navigation\">\n  <div class=\"row\">\n    <div class=\"col-md-2 col-sm-2\">\n      <div class=\"logo\" (click)=\"navigateToHome()\">FindMyShow</div>\n    </div>\n    <div class=\"col-md-8 col-sm-8\">\n      <div class=\"form-group search-box\">\n        <input matInput [matAutocomplete]=\"auto\" type=\"text\" class=\"form-control\" (keyup)=\"findMovieNames(seachForm.value,partial)\"\n          id=\"search_subject\" placeholder=\"Search for movies\" [formControl]=\"seachForm\">\n        <mat-autocomplete #auto=\"matAutocomplete\">\n          <mat-option (keyup.enter)=\"getDetails(movie.id)\" (click)=\"getDetails(movie.id)\" *ngFor=\" let movie of movies\"\n            [value]=\"movies.title\">\n            {{movie.title}}\n          </mat-option>\n        </mat-autocomplete>\n      </div>\n    </div>\n    <div class=\"col-md-2 col-sm-2 search-content\">\n      <a class=\"btn btn-primary search-button\" role=\"button\" (click)=\"searchMovies(seachForm.value,full)\">Search</a>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"navbar\">\n      <nav class=\"navset\">\n        <a class=\"nav-li\" href=\"/home\">Home</a>\n        <a class=\"nav-li\" href=\"/coming_soon\">Coming Soon</a>\n        <a class=\"nav-li\" href=\"/wish_list\">Wish List</a>\n        <a class=\"nav-li\" href=\"/latest\">Latest</a>\n      </nav>\n      <div class=\"log\" *ngIf=\"!loggedIn\">\n        <button class=\"btn btn-primary login-button\" (click)=\"openDialog()\">Log In</button>\n      </div>\n      <div class=\"signup\" *ngIf=\"!loggedIn\">\n        <button class=\"btn btn-primary login-button\" (click)=\"openSignUp()\">Sign Up</button>\n      </div>\n      <div class=\"nav dropdown\" *ngIf=\"loggedIn\">\n        <button class=\"btn btn-danger user-button dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n          aria-expanded=\"false\" (click)=\"toggleDropdown()\">\n          hi, {{this.authenticationService.getUser().firstName}}!\n        </button>\n        <div class=\"dropdown-menu\" id=\"dropdownMenuButton\">\n          <!-- <a class=\"dropdown-item nav-li\" [routerLink]=\"['preferences']\">Set Preferences</a> -->\n          <a class=\"dropdown-item nav-li\" href=\"/user_profile\" (click)=\"viewprofile()\">View Profile</a>\n          <a *ngIf=\"user.email==adminEmail\" class=\"dropdown-item nav-li\" href=\"/manage\">Manage</a>\n          <a class=\"dropdown-item nav-li\" href=\"#\" (click)=\"logOut()\">Log out</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -647,8 +888,14 @@ var NavbarComponent = /** @class */ (function () {
         this.router = router;
         this.authenticationService = authenticationService;
         this.seachForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]('');
+        this.partial = "partial";
+        this.full = "full";
+        this.loggedIn = false;
+        this.adminEmail = "shi.g.bhat@gmail.com";
     }
     NavbarComponent.prototype.ngOnInit = function () {
+        this.loggedIn = this.authenticationService.isLoggedIn();
+        this.user = this.authenticationService.getUser();
     };
     //opens pop up when login is clicked.
     NavbarComponent.prototype.openDialog = function () {
@@ -665,11 +912,22 @@ var NavbarComponent = /** @class */ (function () {
         dialogReference.afterClosed().subscribe(function (result) { console.log("dialog was closed"); });
         return false;
     };
-    NavbarComponent.prototype.searchMovies = function (movieName) {
-        this.router.navigate(['search', { name: movieName }]);
+    NavbarComponent.prototype.searchMovies = function (movieName, details) {
+        var _this = this;
+        if (details == "full") {
+            this.router.navigate(['search', { name: movieName, details: details }]);
+        }
+        else {
+            this.movieService.getSearchedMovieList(movieName, details).subscribe(function (res) {
+                _this.movies = res;
+            });
+        }
     };
     NavbarComponent.prototype.navigateToHome = function () {
         this.router.navigate(['home']);
+    };
+    NavbarComponent.prototype.viewprofile = function () {
+        this.router.navigate(['user_profile']);
     };
     //logs out the user
     NavbarComponent.prototype.logOut = function () {
@@ -677,6 +935,14 @@ var NavbarComponent = /** @class */ (function () {
     };
     NavbarComponent.prototype.toggleDropdown = function () {
         document.getElementById('dropdownMenuButton').classList.toggle('show');
+    };
+    NavbarComponent.prototype.findMovieNames = function (movieName, details) {
+        if (movieName && movieName.length >= 3) {
+            this.searchMovies(movieName, details);
+        }
+    };
+    NavbarComponent.prototype.getDetails = function (movieId) {
+        this.router.navigate(['movie_details', { movie_id: movieId }]);
     };
     NavbarComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -732,7 +998,7 @@ module.exports = ".prefer{\n\twidth: 50%;\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container prefer\">\n  <p>Email</p>\n  <input type=\"text\" class=\"form-control\" id=\"email\" required [(ngModel)]=\"preference.email\" name=\"email\"><br>\n  <p>Genre</p>\n\n  <ng-multiselect-dropdown [placeholder]=\"'Select Genres'\" [data]=\"genreList\" [(ngModel)]=\"preference.genreList\"\n    [settings]=\"dropdownSettings\" (onSelect)=\"onItemSelect($event)\" (onSelectAll)=\"onSelectAll($event)\" name=\"genres\"></ng-multiselect-dropdown><br>\n\n  <p>Language</p>\n\n  <ng-multiselect-dropdown [placeholder]=\"'Select Languages'\" [data]=\"languageList\" [(ngModel)]=\"preference.languageList\"\n    [settings]=\"dropdownSettings\" (onSelect)=\"onItemSelect($event)\" (onSelectAll)=\"onSelectAll($event)\" name=\"languages\"></ng-multiselect-dropdown><br>\n\n  <p>Actor</p>\n\n  <ng-multiselect-dropdown [placeholder]=\"'Select Actors'\" [data]=\"actorsList\" [(ngModel)]=\"preference.actorsList\"\n    [settings]=\"dropdownSettings\" (onSelect)=\"onItemSelect($event)\" (onSelectAll)=\"onSelectAll($event)\" name=\"actors\"></ng-multiselect-dropdown><br>\n\n  <button type=\"submit\" class=\"btn btn-success\" (click)=\"submitNewPreference()\">Submit</button><br><br>\n\n</div>"
+module.exports = "<div class=\"container prefer\">\n  <h4>Set preferences:</h4>\n  <p>Email</p>\n  <input type=\"text\" class=\"form-control\" id=\"email\" required [(ngModel)]=\"this.authService.getUser().email\" name=\"email\" disabled><br>\n  <p>Genre</p>\n\n  <ng-multiselect-dropdown [placeholder]=\"'Select Genres'\" [data]=\"genreList\" [(ngModel)]=\"preference.genreList\"\n    [settings]=\"dropdownSettings\" (onSelect)=\"onItemSelect($event)\" (onSelectAll)=\"onSelectAll($event)\" name=\"genres\"></ng-multiselect-dropdown><br>\n\n  <p>Language</p>\n\n  <ng-multiselect-dropdown [placeholder]=\"'Select Languages'\" [data]=\"languageList\" [(ngModel)]=\"preference.languageList\"\n    [settings]=\"dropdownSettings\" (onSelect)=\"onItemSelect($event)\" (onSelectAll)=\"onSelectAll($event)\" name=\"languages\"></ng-multiselect-dropdown><br>\n\n  <p>Actor</p>\n\n  <ng-multiselect-dropdown [placeholder]=\"'Select Actors'\" [data]=\"actorsList\" [(ngModel)]=\"preference.actorsList\"\n    [settings]=\"dropdownSettings\" (onSelect)=\"onItemSelect($event)\" (onSelectAll)=\"onSelectAll($event)\" name=\"actors\"></ng-multiselect-dropdown><br>\n\n  <button type=\"submit\" class=\"btn btn-success\" (click)=\"submitNewPreference()\">Submit</button><br><br>\n\n</div>"
 
 /***/ }),
 
@@ -750,6 +1016,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Services_preference_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Services/preference.service */ "./src/app/Services/preference.service.ts");
 /* harmony import */ var _Components_preference_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/preference.model */ "./src/app/Components/preference.model.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var _Services_authentication_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Services/authentication.service */ "./src/app/Services/authentication.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -763,10 +1030,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var PreferencesComponent = /** @class */ (function () {
-    function PreferencesComponent(preferenceService, route) {
+    function PreferencesComponent(preferenceService, route, authService) {
         this.preferenceService = preferenceService;
         this.route = route;
+        this.authService = authService;
         this.genreList = [];
         this.languageList = [];
         this.actorsList = [];
@@ -778,7 +1047,9 @@ var PreferencesComponent = /** @class */ (function () {
         var _this = this;
         this.preference = new _Components_preference_model__WEBPACK_IMPORTED_MODULE_2__["Preference"]();
         this.route.params.subscribe(function (params) { _this.user_id = params['user_id']; });
-        this.getPreference();
+        //this.getPreference();    
+        this.preference.email = this.authService.getUser().email;
+        //this.getPreferences();
         this.genreList = [
             { id: 1, item_text: 'Action' },
             { id: 2, item_text: 'Drama' },
@@ -830,13 +1101,20 @@ var PreferencesComponent = /** @class */ (function () {
             _this.preference = response;
         });
     };
+    PreferencesComponent.prototype.getPreferences = function () {
+        var _this = this;
+        this.preferenceService.getPreferencesByEmail(this.email).subscribe(function (response) {
+            _this.preference = response;
+        });
+    };
     PreferencesComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-preferences',
             template: __webpack_require__(/*! ./preferences.component.html */ "./src/app/Components/preferences/preferences.component.html"),
             styles: [__webpack_require__(/*! ./preferences.component.css */ "./src/app/Components/preferences/preferences.component.css")]
         }),
-        __metadata("design:paramtypes", [_Services_preference_service__WEBPACK_IMPORTED_MODULE_1__["PreferenceService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
+        __metadata("design:paramtypes", [_Services_preference_service__WEBPACK_IMPORTED_MODULE_1__["PreferenceService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            _Services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"]])
     ], PreferencesComponent);
     return PreferencesComponent;
 }());
@@ -863,7 +1141,7 @@ module.exports = "input.ng-invalid.ng-touched {\n    border-color: red;\n}\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <form [formGroup]=\"signupForm\" (ngSubmit)=\"OnSignup()\" *ngIf = \"!isSignedUp\">\n              \n        <div formGroupName=\"signupData\">\n\n          <div class=\"form-group\">\n          <h3>New User:</h3>\n          </div>\n\n          <div class=\"form-group\">\n          <label for=\"firstname\">First Name:</label>\n          <input class=\"form-control\" \n                 type=\"string\" \n                 name=\"firstname\" \n                 id=\"firstname\" \n                 formControlName=\"firstname\"\n                 placeholder=\"{{fnamePlaceholder}}\"\n                 [(ngModel)]=\"credentials.firstname\">\n          </div>\n          <span class=\"help-block\"                \n                *ngIf=\"!signupForm.get('signupData.firstname').valid && signupForm.get('signupData.firstname').touched\">\n          <p style=\"color: red\">First Name is required</p>  \n          </span>   \n                \n          <div class=\"form-group\">\n          <label for=\"lastname\">Last Name:</label>\n          <input class=\"form-control\" \n                 type=\"string\" \n                 name=\"lastname\" \n                 id=\"lastname\" \n                 formControlName=\"lastname\"\n                 placeholder=\"{{lnamePlaceholder}}\"\n                 [(ngModel)]=\"credentials.lastname\">\n          </div>\n          <span class=\"help-block\"                \n                *ngIf=\"!signupForm.get('signupData.lastname').valid && signupForm.get('signupData.lastname').touched\">\n          <p style=\"color: red\">Last Name is required</p>  \n          </span>                 \n\n          <div class=\"form-group\">\n          <label for=\"email\">Email:</label>\n          <input class=\"form-control\" \n                 type=\"email\" \n                 name=\"email\" \n                 id=\"email\" \n                 formControlName=\"email\"\n                 placeholder=\"{{emailPlaceholder1}}\"\n                [(ngModel)]=\"credentials.email\">\n          </div>             \n          <span class=\"help-block\"\n                *ngIf=\"!signupForm.get('signupData.email').valid && signupForm.get('signupData.email').touched\">          \n          <p style=\"color: red\">Please enter a valid email</p> \n          </span>\n                \n          <div class=\"form-group\">\n          <label for=\"password\">Password:</label>\n          <input class=\"form-control\" \n                 type=\"password\" \n                 name=\"password\" \n                 id=\"password\" \n                 formControlName=\"password\"\n                 placeholder=\"{{passwordPlaceholder1}}\"\n                 [(ngModel)]=\"credentials.password\">\n          </div>\n          <span class=\"help-block\"\n                *ngIf=\"!signupForm.get('signupData.password').valid && signupForm.get('signupData.password').touched\">\n          <p style=\"color: red\">Password is required</p>  \n          </span>\n              \n          <div class=\"form-group\">\n            <label for=\"location\">Location:</label>\n            <select class=\"form-control\"\n                    id=\"location\" \n                    name=\"location\"\n                    [(ngModel)]=\"credentials.location\"\n                    [ngModelOptions]=\"{standalone: true}\">\n                    <option *ngFor=\"let c of cities\" [ngValue]=\"c.id\">{{c.name}}</option>\n            </select>\n          </div>        \n\n          <div class=\"form-group\">                    \n          <input type = \"checkbox\"\n                 name = \"check\"  formControlName = \"check\" id=\"check\">\n              By clicking this checkbox, you agree to our <font color = \"Blue\">Terms & Conditions</font> \n              and <font color = \"Blue\">Privacy Policy </font>                 \n          </div> \n          <span class=\"help-block\"\n          *ngIf=\"!signupForm.get('signupData.check').valid && signupForm.get('signupData.check').touched\">\n          <p style=\"color: red\">Please agree to terms and conditions for sign up</p>  \n          </span>\n              \n          <button [disabled]=\"!signupForm.valid\" class=\"btn btn-danger\" type=\"submit\" >Sign Up</button>         \n        </div> \n        <br><p *ngIf=\"isError\" style=\"color: red\">{{error_msg}}</p>               \n      </form>      \n    </div> \n    <p *ngIf=\"isSignedUp\">{{success_msg}}</p>         \n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <form [formGroup]=\"signupForm\" (ngSubmit)=\"OnSignup()\" *ngIf = \"!isSignedUp\">\n              \n        <div formGroupName=\"signupData\">\n\n          <div class=\"form-group\">\n          <h3>New User:</h3>\n          </div>\n\n          <div class=\"form-group\">\n          <label for=\"firstname\">First Name:</label>\n          <input class=\"form-control\" \n                 type=\"string\" \n                 name=\"firstname\" \n                 id=\"firstname\" \n                 formControlName=\"firstname\"\n                 placeholder=\"{{fnamePlaceholder}}\"\n                 [(ngModel)]=\"credentials.firstname\">\n          </div>\n          <span class=\"help-block\"                \n                *ngIf=\"!signupForm.get('signupData.firstname').valid && signupForm.get('signupData.firstname').touched\">\n          <p style=\"color: red\">First Name is required</p>  \n          </span>   \n                \n          <div class=\"form-group\">\n          <label for=\"lastname\">Last Name:</label>\n          <input class=\"form-control\" \n                 type=\"string\" \n                 name=\"lastname\" \n                 id=\"lastname\" \n                 formControlName=\"lastname\"\n                 placeholder=\"{{lnamePlaceholder}}\"\n                 [(ngModel)]=\"credentials.lastname\">\n          </div>\n          <span class=\"help-block\"                \n                *ngIf=\"!signupForm.get('signupData.lastname').valid && signupForm.get('signupData.lastname').touched\">\n          <p style=\"color: red\">Last Name is required</p>  \n          </span>                 \n\n          <div class=\"form-group\">\n          <label for=\"email\">Email:</label>\n          <input class=\"form-control\" \n                 type=\"email\" \n                 name=\"email\" \n                 id=\"email\" \n                 formControlName=\"email\"\n                 placeholder=\"{{emailPlaceholder1}}\"\n                [(ngModel)]=\"credentials.email\">\n          </div>             \n          <span class=\"help-block\"\n                *ngIf=\"!signupForm.get('signupData.email').valid && signupForm.get('signupData.email').touched\">          \n          <p style=\"color: red\">Please enter a valid email</p> \n          </span>\n                \n          <div class=\"form-group\">\n          <label for=\"password\">Password:</label>\n          <input class=\"form-control\" \n                 type=\"password\" \n                 name=\"password\" \n                 id=\"password\" \n                 formControlName=\"password\"\n                 placeholder=\"{{passwordPlaceholder1}}\"\n                 [(ngModel)]=\"credentials.password\">\n          </div>\n          <span class=\"help-block\"\n                *ngIf=\"!signupForm.get('signupData.password').valid && signupForm.get('signupData.password').touched\">\n          <p style=\"color: red\">Password is required</p>  \n          </span>\n              \n          <div class=\"form-group\">\n            <label for=\"location\">Location:</label>\n            <select class=\"form-control\"\n                    id=\"location\" \n                    name=\"location\"\n                    formControlName=\"location\"\n                    [(ngModel)]=\"credentials.location\">\n                    <option value =\"\" disabled selected hidden [ngValue]=\"null\">Select</option>\n                    <option *ngFor=\"let c of cities\" [ngValue]=\"c.name\">{{c.name}}</option>\n            </select>\n            <span class=\"help-block\"\n                  *ngIf=\"!signupForm.get('signupData.location').valid && signupForm.get('signupData.location').touched\">\n                  <p style=\"color: red\">Please select your location</p>\n            </span>\n          </div>        \n          <div class=\"form-group\">                    \n          <input type = \"checkbox\"\n                 name = \"check\"  formControlName = \"check\" id=\"check\">\n              By clicking this checkbox, you agree to our <font color = \"Blue\">Terms & Conditions</font> \n              and <font color = \"Blue\">Privacy Policy </font>                 \n          </div> \n          <span class=\"help-block\"\n          *ngIf=\"!signupForm.get('signupData.check').valid && signupForm.get('signupData.check').touched\">\n          <p style=\"color: red\">Please agree to terms and conditions for sign up</p>  \n          </span>\n              \n          <button [disabled]=\"!signupForm.valid\" class=\"btn btn-danger\" type=\"submit\" >Sign Up</button>         \n        </div> \n        <br><p *ngIf=\"isError\" style=\"color: red\">{{error_msg}}</p>               \n      </form>      \n    </div> \n    <p *ngIf=\"isSignedUp\">{{success_msg}}</p>         \n  </div>\n</div>"
 
 /***/ }),
 
@@ -881,6 +1159,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/@angular/forms */ "./node_modules/@angular/forms/esm5/forms.js");
 /* harmony import */ var _Services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Services/authentication.service */ "./src/app/Services/authentication.service.ts");
+/* harmony import */ var _Services_city_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Services/city.service */ "./src/app/Services/city.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -894,9 +1173,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var SignupComponent = /** @class */ (function () {
-    function SignupComponent(auth, router) {
+    function SignupComponent(auth, cityService, router) {
         this.auth = auth;
+        this.cityService = cityService;
         this.router = router;
         this.credentials = {
             firstname: '',
@@ -905,20 +1186,16 @@ var SignupComponent = /** @class */ (function () {
             password: '',
             location: ''
         };
-        this.cities = [
-            { id: 1, name: "Tempe" },
-            { id: 2, name: "Chandler" },
-            { id: 3, name: "Phoenix" },
-            { id: 4, name: "Mesa" }
-        ];
     }
     SignupComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.signupForm = new _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
             'signupData': new _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
                 'firstname': new _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
                 'lastname': new _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
                 'email': new _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]),
                 'password': new _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+                'location': new _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
                 'check': new _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])
             })
         });
@@ -930,6 +1207,9 @@ var SignupComponent = /** @class */ (function () {
         this.isError = false;
         this.error_msg = "User already exist with this email id";
         this.success_msg = "You have registered successfully to FindMyShow application!";
+        this.cityService.getCities().subscribe(function (response) {
+            _this.cities = response;
+        });
     };
     SignupComponent.prototype.OnSignup = function () {
         var _this = this;
@@ -941,7 +1221,9 @@ var SignupComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./signup.component.html */ "./src/app/Components/signup/signup.component.html"),
             styles: [__webpack_require__(/*! ./signup.component.css */ "./src/app/Components/signup/signup.component.css")]
         }),
-        __metadata("design:paramtypes", [_Services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+        __metadata("design:paramtypes", [_Services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"],
+            _Services_city_service__WEBPACK_IMPORTED_MODULE_4__["CityService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], SignupComponent);
     return SignupComponent;
 }());
@@ -1036,7 +1318,7 @@ var SimilarMoviesComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".timings{\n\tpadding-left: 10px;\n}\n\n.scroller {\n    overflow: scroll;\n    height: 250px;\n}\n\na {\n    color: maroon;\n}"
+module.exports = ".timings{\n\tpadding-left: 10px;\n}\n\n.scroller {\n    overflow: scroll;\n    height: 370px;\n}\n\na {\n    color: maroon;\n}\n\n.theatre {\n\tpadding-left: 5px;\n\tpadding-right: 5px;\n}"
 
 /***/ }),
 
@@ -1047,7 +1329,7 @@ module.exports = ".timings{\n\tpadding-left: 10px;\n}\n\n.scroller {\n    overfl
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <mat-tab-group>\n  <mat-tab label=\"Today\">\n    <br>\n    <div class=\"row container scroller\">\n    \t<div class=\"col-6 row\" *ngFor=\"let day of day1\">\n    \t\t <h6>{{ day.theatre }} </h6>\n          <div class=\"row container\">\n            <p class=\"timings\" *ngFor=\"let showTime of day['times']\">\n             {{ showTime.time }}\n            </p>\n          </div>\n          <a class=\"maroon row container\" href= \"{{day.movie_link}}\" >Book Tickets</a>\n    \t</div>\n    </div>\n  </mat-tab>\n  <mat-tab label=\"Tomorrow\">\n    <br>\n    <div class=\"row container\">\n    \t<div class=\"col-md-3\" *ngFor=\"let day of day2\">\n    \t\t{{ day.time }} {{ day.theatre }}\n    \t</div>\n    </div>\n  </mat-tab>\n  <mat-tab label=\"Day After\">\n    <br>\n    <div class=\"row container\">\n    \t<div class=\"col-md-3\" *ngFor=\"let day of day3\">\n    \t\t{{ day.time }} {{ day.theatre }}\n    \t</div>\n    </div>\n  </mat-tab>\n</mat-tab-group></div>"
+module.exports = "<div class=\"container\">\n  <mat-tab-group>\n  <mat-tab label=\"Today\">\n    <br>\n    <div class=\"row container scroller\">\n    \t<div class=\"col-6 theatre\" *ngFor=\"let day of day1\">\n    \t\t <h6>{{ day.theatre }} </h6>\n          <div class=\"row container\">\n            <p class=\"timings\" *ngFor=\"let showTime of day['times']\">\n             <a href= \"{{showTime.booking_link}}\"> {{ showTime.time }} </a>\n            </p>\n          </div>\n    \t</div>\n    </div>\n  </mat-tab>\n  <mat-tab label=\"Tomorrow\">\n    <br>\n    <div class=\"row container scroller\">\n      <div class=\"col-6 theatre\" *ngFor=\"let day of day2\">\n         <h6>{{ day.theatre }} </h6>\n          <div class=\"row container\">\n            <p class=\"timings\" *ngFor=\"let showTime of day['times']\">\n             <a href= \"{{showTime.booking_link}}\"> {{ showTime.time }} </a>\n            </p>\n          </div>\n      </div>\n    </div>\n  </mat-tab>\n  <mat-tab label=\"Day After\">\n    <br>\n    <div class=\"row container scroller\">\n      <div class=\"col-6 theatre\" *ngFor=\"let day of day3\">\n         <h6>{{ day.theatre }} </h6>\n          <div class=\"row container\">\n            <p class=\"timings\" *ngFor=\"let showTime of day['times']\">\n             <a href= \"{{showTime.booking_link}}\"> {{ showTime.time }} </a>\n            </p>\n          </div>\n      </div>\n    </div>\n  </mat-tab>\n</mat-tab-group></div>"
 
 /***/ }),
 
@@ -1062,7 +1344,7 @@ module.exports = "<div class=\"container\">\n  <mat-tab-group>\n  <mat-tab label
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimeAndTheatreComponent", function() { return TimeAndTheatreComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var _movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../movie-details/movie-details.component */ "./src/app/Components/movie-details/movie-details.component.ts");
+/* harmony import */ var _Services_movie_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Services/movie.service */ "./src/app/Services/movie.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1075,39 +1357,88 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var TimeAndTheatreComponent = /** @class */ (function () {
-    function TimeAndTheatreComponent(movieDetails) {
-        this.movieDetails = movieDetails;
+    function TimeAndTheatreComponent(movieService) {
+        this.movieService = movieService;
+        this.date = 0;
         this.day1 = [];
         this.day2 = [];
         this.day3 = [];
-        this.tempTimes = [];
+        this.tempTimes1 = [];
+        this.tempTimes2 = [];
+        this.tempTimes3 = [];
     }
     TimeAndTheatreComponent.prototype.ngOnInit = function () {
-        this.attachCinema();
+        var _this = this;
+        this.movieService.getShowTimes(3).subscribe(function (response) {
+            _this.data = response;
+            _this.attachCinema();
+        });
     };
+    Object.defineProperty(TimeAndTheatreComponent.prototype, "diagnostic", {
+        get: function () { return JSON.stringify(this.data['show_detail']); },
+        enumerable: true,
+        configurable: true
+    });
     TimeAndTheatreComponent.prototype.attachCinema = function () {
-        this.movie = this.movieDetails.movie;
-        for (var _i = 0, _a = this.movie["cinema_detail"]; _i < _a.length; _i++) {
+        for (var _i = 0, _a = this.data.cinema_detail; _i < _a.length; _i++) {
             var cinema = _a[_i];
-            this.tempTimes = [];
-            for (var _b = 0, _c = this.movie["show_detail"]; _b < _c.length; _b++) {
+            this.tempTimes1 = [];
+            this.tempTimes2 = [];
+            this.tempTimes3 = [];
+            for (var _b = 0, _c = this.data.show_detail; _b < _c.length; _b++) {
                 var show = _c[_b];
                 if (cinema["id"] == show["cinema_id"]) {
                     var x = show["time"].split("-");
                     var y = x[2].split("T");
                     var z = y[1].split(":");
                     var actualTime = z[0] + ":" + z[1];
-                    this.link = show["booking_link"];
-                    this.tempTimes.push({
-                        time: actualTime
-                    });
+                    var temp_date = new Date(show['time']);
+                    if (this.date == 0) {
+                        this.date = 1;
+                        this.today = new Date(show['time']);
+                        this.tomorrow = new Date(this.today);
+                        this.tomorrow.setDate(this.tomorrow.getDate() + 1);
+                        this.day_after = new Date(this.today);
+                        this.day_after.setDate(this.day_after.getDate() + 2);
+                    }
+                    if (temp_date.getDate() == this.today.getDate()) {
+                        this.tempTimes1.push({
+                            time: actualTime,
+                            booking_link: show["booking_link"]
+                        });
+                    }
+                    else if (temp_date.getDate() == this.tomorrow.getDate()) {
+                        this.tempTimes2.push({
+                            time: actualTime,
+                            booking_link: show["booking_link"]
+                        });
+                    }
+                    else if (temp_date.getDate() == this.day_after.getDate()) {
+                        this.tempTimes3.push({
+                            time: actualTime,
+                            booking_link: show["booking_link"]
+                        });
+                    }
                 }
             }
-            this.day1.push({
-                theatre: cinema["name"],
-                movie_link: this.link,
-                times: this.tempTimes
-            });
+            if (this.tempTimes1.length != 0) {
+                this.day1.push({
+                    theatre: cinema["name"],
+                    times: this.tempTimes1
+                });
+            }
+            if (this.tempTimes2.length != 0) {
+                this.day2.push({
+                    theatre: cinema["name"],
+                    times: this.tempTimes2
+                });
+            }
+            if (this.tempTimes3.length != 0) {
+                this.day3.push({
+                    theatre: cinema["name"],
+                    times: this.tempTimes3
+                });
+            }
         }
     };
     TimeAndTheatreComponent = __decorate([
@@ -1116,9 +1447,164 @@ var TimeAndTheatreComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./time-and-theatre.component.html */ "./src/app/Components/time-and-theatre/time-and-theatre.component.html"),
             styles: [__webpack_require__(/*! ./time-and-theatre.component.css */ "./src/app/Components/time-and-theatre/time-and-theatre.component.css")]
         }),
-        __metadata("design:paramtypes", [_movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_1__["MovieDetailsComponent"]])
+        __metadata("design:paramtypes", [_Services_movie_service__WEBPACK_IMPORTED_MODULE_1__["MovieService"]])
     ], TimeAndTheatreComponent);
     return TimeAndTheatreComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/Components/user-profile/user-profile.component.css":
+/*!********************************************************************!*\
+  !*** ./src/app/Components/user-profile/user-profile.component.css ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "input.ng-invalid.ng-touched {\n    border-color: red;\n}\n\n.profile{\n    width: 50%;\n}\n\n.prefer{\n\twidth: 50%;\n}\n\n"
+
+/***/ }),
+
+/***/ "./src/app/Components/user-profile/user-profile.component.html":
+/*!*********************************************************************!*\
+  !*** ./src/app/Components/user-profile/user-profile.component.html ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container profile\">\n        <div class=\"row\">\n          <div class=\"col-md-12\">\n            <form [formGroup]=\"userprofileForm\">\n                    \n              <div formGroupName=\"profileData\">\n      \n                <div class=\"form-group\">\n                <h3 align =\"center\">User Profile</h3>\n                </div>\n      \n                <div class=\"form-group\">\n                <br><h5><u>User Details: </u></h5>\n                <label for=\"firstname\">First Name:</label>\n                <input class=\"form-control\" \n                       type=\"string\" \n                       name=\"firstname\" \n                       id=\"firstname\" \n                       formControlName=\"firstname\"                                                                   \n                       [(ngModel)]=\"profile.firstName\"\n                       [readonly] = \"readonly\">\n                </div> \n                      \n                <div class=\"form-group\">\n                <label for=\"lastname\">Last Name:</label>\n                <input class=\"form-control\" \n                       type=\"string\" \n                       name=\"lastname\"                        \n                       id=\"lastname\" \n                       formControlName=\"lastname\"\n                       [(ngModel)]=\"profile.lastname\"\n                       [readonly]=\"readonly\">\n                </div>\n                <div class=\"form-group\">\n                <label for=\"email\">Email:</label>\n                <input class=\"form-control\" \n                       type=\"email\" \n                       name=\"email\" \n                       id=\"email\" \n                       readonly\n                       formControlName=\"email\"                       \n                       [(ngModel)]=\"profile.email\">\n                </div>                                \n                    \n                <div class=\"form-group\">\n                  <label for=\"location\">Location:</label>\n                  <input *ngIf = \"readonly\"\n                         class=\"form-control\" \n                         type=\"location\" \n                         name=\"location\" \n                         id=\"location\" \n                         readonly\n                         formControlName=\"location\"                       \n                         [(ngModel)]=\"profile.location\">                 \n                   <select *ngIf=\"!readonly\"\n                         class=\"form-control\"\n                         id=\"location\" \n                         name=\"location\"\n                         formControlName=\"location\"                         \n                         [(ngModel)]=\"profile.location\">                        \n                         <option *ngFor=\"let c of cities\" [ngValue]=\"c.name\">{{c.name}}</option>\n                 </select>\n                </div>            \n              </div>               \n            </form>  \n            <div><a *ngIf=\"!readonly\" class=\"nav-li\" href=\"/preferences\">Set Preferences</a></div>\n            <br>           \n        </div>       \n    </div>\n\n<!--     <div>\n            <br><h5><u>Preferences: </u></h5>\n            <label for=\"email\">Email</label>\n            <input type=\"text\" class=\"form-control\" id=\"email\" required [(ngModel)]=\"preference.email\" name=\"email\"><br>\n            <label for=\"genre\">Genre</label>\n            <ng-multiselect-dropdown [placeholder]=\"'Select Genres'\" \n                                     [data]=\"genreList\" \n                                     [(ngModel)]=\"preference.genreList\"\n                                     [settings]=\"dropdownSettings\" \n                                     name=\"genres\"\n                                     [disabled]=\"readonly\">\n            </ng-multiselect-dropdown><br>\n            <label for=\"language\">Language</label>\n            <ng-multiselect-dropdown [placeholder]=\"'Select Languages'\" \n                                     [data]=\"languageList\" \n                                     [(ngModel)]=\"preference.languageList\"\n                                     [settings]=\"dropdownSettings\"\n                                     name=\"languages\"\n                                     [disabled]=\"readonly\">\n            </ng-multiselect-dropdown><br>                    \n            <label for=\"actor\">Actor</label>                    \n            <ng-multiselect-dropdown [placeholder]=\"'Select Actors'\" \n                                     [data]=\"actorsList\" \n                                     [(ngModel)]=\"preference.actorsList\"\n                                     [settings]=\"dropdownSettings\" \n                                     name=\"actors\"\n                                     [disabled] =\"readonly\">\n            </ng-multiselect-dropdown><br>\n        </div> -->\n   <button *ngIf=\"readonly\" type=\"submit\" class=\"btn btn-danger\" (click)=\"editProfile()\">Edit Profile</button>     \n   <button *ngIf=\"!readonly\" type=\"submit\" class=\"btn btn-success\" (click)=\"saveChanges()\">Save Changes</button><br><br><br>     \n</div>\n\n\n"
+
+/***/ }),
+
+/***/ "./src/app/Components/user-profile/user-profile.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/Components/user-profile/user-profile.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: UserProfileComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserProfileComponent", function() { return UserProfileComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var _Services_authentication_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Services/authentication.service */ "./src/app/Services/authentication.service.ts");
+/* harmony import */ var _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/@angular/forms */ "./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var _Services_city_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Services/city.service */ "./src/app/Services/city.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/esm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var UserProfileComponent = /** @class */ (function () {
+    function UserProfileComponent(route, cityService, authService) {
+        this.route = route;
+        this.cityService = cityService;
+        this.authService = authService;
+        this.readonly = true;
+        this.credentials = {
+            firstname: '',
+            lastname: '',
+            email: '',
+            password: '',
+            location: ''
+        };
+    }
+    UserProfileComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userprofileForm = new _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            'profileData': new _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+                'firstname': new _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null),
+                'lastname': new _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null),
+                'email': new _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null),
+                'location': new _node_modules_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null),
+            })
+        });
+        this.profile = this.authService.getUser();
+        this.cityService.getCities().subscribe(function (response) {
+            _this.cities = response;
+        });
+    };
+    UserProfileComponent.prototype.editProfile = function () {
+        this.readonly = false;
+    };
+    UserProfileComponent.prototype.saveChanges = function () {
+        this.readonly = true;
+        this.credentials = this.profile;
+        this.authService.updateProfile(this.credentials).subscribe(function () { console.log("user updated successfully"); }, function (err) { console.log("error in update"); });
+    };
+    UserProfileComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-user-profile',
+            template: __webpack_require__(/*! ./user-profile.component.html */ "./src/app/Components/user-profile/user-profile.component.html"),
+            styles: [__webpack_require__(/*! ./user-profile.component.css */ "./src/app/Components/user-profile/user-profile.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _Services_city_service__WEBPACK_IMPORTED_MODULE_3__["CityService"],
+            _Services_authentication_service__WEBPACK_IMPORTED_MODULE_1__["AuthenticationService"]])
+    ], UserProfileComponent);
+    return UserProfileComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/Services/admin.service.ts":
+/*!*******************************************!*\
+  !*** ./src/app/Services/admin.service.ts ***!
+  \*******************************************/
+/*! exports provided: AdmminService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmminService", function() { return AdmminService; });
+/* harmony import */ var _node_modules_angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/@angular/core */ "./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/@angular/common/http */ "./node_modules/@angular/common/esm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var httpOptions = {
+    headers: new _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+        'Content-Type': 'application/json',
+        'Authorization': 'my-auth-token'
+    })
+};
+var AdmminService = /** @class */ (function () {
+    function AdmminService(http) {
+        this.http = http;
+    }
+    AdmminService.prototype.sendEmails = function () {
+        this.http.get("/email").subscribe(function (res) {
+            debugger;
+            window.alert(res);
+        });
+    };
+    AdmminService = __decorate([
+        Object(_node_modules_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], AdmminService);
+    return AdmminService;
 }());
 
 
@@ -1157,25 +1643,25 @@ var AuthenticationService = /** @class */ (function () {
         this.httpClient = httpClient;
         this.router = router;
     }
-    //method to save token in localStorage.
+    // method to save token in localStorage.
     AuthenticationService.prototype.saveToken = function (token) {
         localStorage.setItem('token', token);
         this.token = token;
     };
-    //method to retrieve token. 
+    // method to retrieve token.
     AuthenticationService.prototype.getToken = function () {
         if (!this.token) {
             this.token = localStorage.getItem('token');
         }
         return this.token;
     };
-    //logout method.
+    // logout method.
     AuthenticationService.prototype.logout = function () {
-        this.token = "";
+        this.token = '';
         window.localStorage.removeItem('token');
-        this.router.navigateByUrl("/home");
+        this.router.navigateByUrl('/home');
     };
-    //method to parse user details from JWT token.
+    // method to parse user details from JWT token.
     AuthenticationService.prototype.getUser = function () {
         var token = this.getToken();
         var payLoad;
@@ -1188,7 +1674,7 @@ var AuthenticationService = /** @class */ (function () {
             return null;
         }
     };
-    //check whether the user is logged in
+    // check whether the user is logged in
     AuthenticationService.prototype.isLoggedIn = function () {
         var user = this.getUser();
         if (user) {
@@ -1198,18 +1684,18 @@ var AuthenticationService = /** @class */ (function () {
             return false;
         }
     };
-    //generalized method to make http requests to server
+    // generalized method to make http requests to server
     AuthenticationService.prototype.request = function (method, type, user) {
         var _this = this;
         var base;
         if (method === 'post' && type === 'login') {
-            base = this.httpClient.post("/auth/", user);
+            base = this.httpClient.post('/auth/', user);
         }
         else if (method === 'post' && type === 'signup') {
-            base = this.httpClient.post("/users/", user);
+            base = this.httpClient.post('/users/', user);
         }
         else {
-            base = this.httpClient.get("/auth/${type}", { headers: { Authorization: "Bearer " + this.getToken() } });
+            base = this.httpClient.get('/auth/${type}', { headers: { Authorization: "Bearer " + this.getToken() } });
         }
         var request = base.pipe(Object(rxjs_operators_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (data) {
             if (data.token) {
@@ -1219,27 +1705,79 @@ var AuthenticationService = /** @class */ (function () {
         }));
         return request;
     };
-    //login method
+    // login method
     AuthenticationService.prototype.login = function (user) {
         return this.request('post', 'login', user);
     };
-    //signup method
+    // signup method
     AuthenticationService.prototype.signup = function (user) {
         return this.request('post', 'signup', user);
     };
-    //setter method for dialog reference
+    // activation method
+    AuthenticationService.prototype.activate = function (code) {
+        return this.httpClient.get('/activate/' + code, {
+            responseType: 'json'
+        });
+    };
+    // setter method for dialog reference
     AuthenticationService.prototype.setDialogRef = function (dialogRef) {
         this.dialogRef = dialogRef;
     };
-    //getter method for dialog reference
+    // getter method for dialog reference
     AuthenticationService.prototype.getDialogRef = function () {
         return this.dialogRef;
+    };
+    AuthenticationService.prototype.updateProfile = function (user) {
+        return this.httpClient.put('/users/', user);
     };
     AuthenticationService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], AuthenticationService);
     return AuthenticationService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/Services/city.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/Services/city.service.ts ***!
+  \******************************************/
+/*! exports provided: CityService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CityService", function() { return CityService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/esm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CityService = /** @class */ (function () {
+    function CityService(http) {
+        this.http = http;
+        this.cities = [];
+    }
+    //method to get cities list to populate on sign up page
+    CityService.prototype.getCities = function () {
+        return this.http.get("/cities/", { responseType: "json" });
+    };
+    CityService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], CityService);
+    return CityService;
 }());
 
 
@@ -1285,25 +1823,31 @@ var MovieService = /** @class */ (function () {
     /* A getter method to get movies.
       * @returns movies: Movie[].
       */
-    MovieService.prototype.getMovies = function () {
-        return this.http.get("/movies", { responseType: "json" });
+    MovieService.prototype.getMovies = function (id) {
+        return this.http.get("/movies/?page=" + id, { responseType: "json" });
     };
     /* A getter method to get movie details */
     MovieService.prototype.getMovieDetails = function (id) {
+        this.movie_id = id;
         return this.http.get("/movies/" + id, {
             responseType: "json"
         });
     };
-    MovieService.prototype.getSearchedMovieList = function (movieName) {
-        return this.http.get("/movies/?type=search&name=" + movieName);
+    MovieService.prototype.getSearchedMovieList = function (movieName, details) {
+        return this.http.get("/movies/?type=search&name=" + movieName + "&details=" + details);
     };
-    MovieService.prototype.getUpcomingMovieList = function () {
-        return this.http.get("/movies/?type=upcoming", {
+    MovieService.prototype.getUpcomingMovieList = function (id) {
+        return this.http.get("/movies/?type=upcoming&page=" + id, {
             responseType: "json"
         });
     };
     MovieService.prototype.getSimilarMovies = function (id) {
         return this.http.get("/movies/" + id + "/?type=similar", {
+            responseType: "json"
+        });
+    };
+    MovieService.prototype.getShowTimes = function (days) {
+        return this.http.get("/showtimes/" + this.movie_id + "?date=" + days, {
             responseType: "json"
         });
     };
@@ -1357,8 +1901,8 @@ var PreferenceService = /** @class */ (function () {
             responseType: "json"
         });
     };
-    PreferenceService.prototype.getPreferencesByEmail = function () {
-        return this.http.get("/preferences/", {
+    PreferenceService.prototype.getPreferencesByEmail = function (email) {
+        return this.http.get("/preferences/?email=" + email, {
             responseType: "json"
         });
     };
@@ -1466,21 +2010,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/esm5/forms.js");
 /* harmony import */ var ng_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ng-multiselect-dropdown */ "./node_modules/ng-multiselect-dropdown/fesm5/ng-multiselect-dropdown.js");
 /* harmony import */ var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/tabs */ "./node_modules/@angular/material/esm5/tabs.es5.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _Components_MovieComponents_movie_card_component_movie_card_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Components/MovieComponents/movie-card-component/movie-card.component */ "./src/app/Components/MovieComponents/movie-card-component/movie-card.component.ts");
-/* harmony import */ var _Components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Components/navbar/navbar.component */ "./src/app/Components/navbar/navbar.component.ts");
-/* harmony import */ var _Components_home_home_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Components/home/home.component */ "./src/app/Components/home/home.component.ts");
-/* harmony import */ var _Components_footer_footer_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Components/footer/footer.component */ "./src/app/Components/footer/footer.component.ts");
-/* harmony import */ var _Components_movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Components/movie-details/movie-details.component */ "./src/app/Components/movie-details/movie-details.component.ts");
-/* harmony import */ var _Components_MovieComponents_movie_slide_movie_slide_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Components/MovieComponents/movie-slide/movie-slide.component */ "./src/app/Components/MovieComponents/movie-slide/movie-slide.component.ts");
-/* harmony import */ var _Components_login_login_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./Components/login/login.component */ "./src/app/Components/login/login.component.ts");
-/* harmony import */ var _Services_movie_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./Services/movie.service */ "./src/app/Services/movie.service.ts");
-/* harmony import */ var _Services_authentication_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./Services/authentication.service */ "./src/app/Services/authentication.service.ts");
-/* harmony import */ var _Components_signup_signup_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./Components/signup/signup.component */ "./src/app/Components/signup/signup.component.ts");
-/* harmony import */ var _Components_preferences_preferences_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./Components/preferences/preferences.component */ "./src/app/Components/preferences/preferences.component.ts");
-/* harmony import */ var _Components_similar_movies_similar_movies_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./Components/similar-movies/similar-movies.component */ "./src/app/Components/similar-movies/similar-movies.component.ts");
-/* harmony import */ var _Components_time_and_theatre_time_and_theatre_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./Components/time-and-theatre/time-and-theatre.component */ "./src/app/Components/time-and-theatre/time-and-theatre.component.ts");
-/* harmony import */ var _Services_preference_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./Services/preference.service */ "./src/app/Services/preference.service.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/autocomplete */ "./node_modules/@angular/material/esm5/autocomplete.es5.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _Components_MovieComponents_movie_card_component_movie_card_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Components/MovieComponents/movie-card-component/movie-card.component */ "./src/app/Components/MovieComponents/movie-card-component/movie-card.component.ts");
+/* harmony import */ var _Components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Components/navbar/navbar.component */ "./src/app/Components/navbar/navbar.component.ts");
+/* harmony import */ var _Components_home_home_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Components/home/home.component */ "./src/app/Components/home/home.component.ts");
+/* harmony import */ var _Components_footer_footer_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Components/footer/footer.component */ "./src/app/Components/footer/footer.component.ts");
+/* harmony import */ var _Components_movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./Components/movie-details/movie-details.component */ "./src/app/Components/movie-details/movie-details.component.ts");
+/* harmony import */ var _Components_MovieComponents_movie_slide_movie_slide_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./Components/MovieComponents/movie-slide/movie-slide.component */ "./src/app/Components/MovieComponents/movie-slide/movie-slide.component.ts");
+/* harmony import */ var _Components_login_login_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./Components/login/login.component */ "./src/app/Components/login/login.component.ts");
+/* harmony import */ var _Components_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./Components/user-profile/user-profile.component */ "./src/app/Components/user-profile/user-profile.component.ts");
+/* harmony import */ var _Services_movie_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./Services/movie.service */ "./src/app/Services/movie.service.ts");
+/* harmony import */ var _Services_authentication_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./Services/authentication.service */ "./src/app/Services/authentication.service.ts");
+/* harmony import */ var _Components_signup_signup_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./Components/signup/signup.component */ "./src/app/Components/signup/signup.component.ts");
+/* harmony import */ var _Components_preferences_preferences_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./Components/preferences/preferences.component */ "./src/app/Components/preferences/preferences.component.ts");
+/* harmony import */ var _Components_similar_movies_similar_movies_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./Components/similar-movies/similar-movies.component */ "./src/app/Components/similar-movies/similar-movies.component.ts");
+/* harmony import */ var _Components_time_and_theatre_time_and_theatre_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./Components/time-and-theatre/time-and-theatre.component */ "./src/app/Components/time-and-theatre/time-and-theatre.component.ts");
+/* harmony import */ var _Services_preference_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./Services/preference.service */ "./src/app/Services/preference.service.ts");
+/* harmony import */ var _Components_activation_activation_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./Components/activation/activation.component */ "./src/app/Components/activation/activation.component.ts");
+/* harmony import */ var _Services_city_service__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./Services/city.service */ "./src/app/Services/city.service.ts");
+/* harmony import */ var _Components_error_dialog_error_dialog_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./Components/error-dialog/error-dialog.component */ "./src/app/Components/error-dialog/error-dialog.component.ts");
+/* harmony import */ var _Services_admin_service__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./Services/admin.service */ "./src/app/Services/admin.service.ts");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm5/button.es5.js");
+/* harmony import */ var _Components_admin_manage_admin_manage_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./Components/admin-manage/admin-manage.component */ "./src/app/Components/admin-manage/admin-manage.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1514,15 +2067,27 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
+
+
+
+
+
+
 var routes = [
-    { path: 'coming_soon', component: _Components_home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"] },
-    { path: 'wish_list/:id', component: _Components_home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"] },
-    { path: 'latest', component: _Components_home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"] },
-    { path: 'home', component: _Components_home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"] },
-    { path: 'movie_details', component: _Components_movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_16__["MovieDetailsComponent"] },
-    { path: 'search', component: _Components_home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"] },
-    { path: 'preferences', component: _Components_preferences_preferences_component__WEBPACK_IMPORTED_MODULE_22__["PreferencesComponent"] },
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'coming_soon', component: _Components_home_home_component__WEBPACK_IMPORTED_MODULE_16__["HomeComponent"] },
+    { path: 'wish_list/:id', component: _Components_home_home_component__WEBPACK_IMPORTED_MODULE_16__["HomeComponent"] },
+    { path: 'latest', component: _Components_home_home_component__WEBPACK_IMPORTED_MODULE_16__["HomeComponent"] },
+    { path: 'home', component: _Components_home_home_component__WEBPACK_IMPORTED_MODULE_16__["HomeComponent"] },
+    { path: 'movie_details', component: _Components_movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_18__["MovieDetailsComponent"] },
+    { path: 'search', component: _Components_home_home_component__WEBPACK_IMPORTED_MODULE_16__["HomeComponent"] },
+    { path: 'preferences', component: _Components_preferences_preferences_component__WEBPACK_IMPORTED_MODULE_25__["PreferencesComponent"] },
+    { path: 'activate', component: _Components_activation_activation_component__WEBPACK_IMPORTED_MODULE_29__["ActivationComponent"] },
+    { path: 'user_profile', component: _Components_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_21__["UserProfileComponent"] },
+    { path: 'manage', component: _Components_admin_manage_admin_manage_component__WEBPACK_IMPORTED_MODULE_34__["AdminManageComponent"] },
+    { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -1530,22 +2095,27 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             entryComponents: [
-                _Components_login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"],
-                _Components_signup_signup_component__WEBPACK_IMPORTED_MODULE_21__["SignupComponent"]
+                _Components_login_login_component__WEBPACK_IMPORTED_MODULE_20__["LoginComponent"],
+                _Components_signup_signup_component__WEBPACK_IMPORTED_MODULE_24__["SignupComponent"],
+                _Components_time_and_theatre_time_and_theatre_component__WEBPACK_IMPORTED_MODULE_27__["TimeAndTheatreComponent"]
             ],
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"],
-                _Components_MovieComponents_movie_card_component_movie_card_component__WEBPACK_IMPORTED_MODULE_12__["MovieCardComponent"],
-                _Components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_13__["NavbarComponent"],
-                _Components_home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"],
-                _Components_footer_footer_component__WEBPACK_IMPORTED_MODULE_15__["FooterComponent"],
-                _Components_movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_16__["MovieDetailsComponent"],
-                _Components_MovieComponents_movie_slide_movie_slide_component__WEBPACK_IMPORTED_MODULE_17__["MovieSlideComponent"],
-                _Components_login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"],
-                _Components_signup_signup_component__WEBPACK_IMPORTED_MODULE_21__["SignupComponent"],
-                _Components_preferences_preferences_component__WEBPACK_IMPORTED_MODULE_22__["PreferencesComponent"],
-                _Components_similar_movies_similar_movies_component__WEBPACK_IMPORTED_MODULE_23__["SimilarMoviesComponent"],
-                _Components_time_and_theatre_time_and_theatre_component__WEBPACK_IMPORTED_MODULE_24__["TimeAndTheatreComponent"],
+                _app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"],
+                _Components_MovieComponents_movie_card_component_movie_card_component__WEBPACK_IMPORTED_MODULE_14__["MovieCardComponent"],
+                _Components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_15__["NavbarComponent"],
+                _Components_home_home_component__WEBPACK_IMPORTED_MODULE_16__["HomeComponent"],
+                _Components_footer_footer_component__WEBPACK_IMPORTED_MODULE_17__["FooterComponent"],
+                _Components_movie_details_movie_details_component__WEBPACK_IMPORTED_MODULE_18__["MovieDetailsComponent"],
+                _Components_MovieComponents_movie_slide_movie_slide_component__WEBPACK_IMPORTED_MODULE_19__["MovieSlideComponent"],
+                _Components_login_login_component__WEBPACK_IMPORTED_MODULE_20__["LoginComponent"],
+                _Components_signup_signup_component__WEBPACK_IMPORTED_MODULE_24__["SignupComponent"],
+                _Components_preferences_preferences_component__WEBPACK_IMPORTED_MODULE_25__["PreferencesComponent"],
+                _Components_similar_movies_similar_movies_component__WEBPACK_IMPORTED_MODULE_26__["SimilarMoviesComponent"],
+                _Components_time_and_theatre_time_and_theatre_component__WEBPACK_IMPORTED_MODULE_27__["TimeAndTheatreComponent"],
+                _Components_activation_activation_component__WEBPACK_IMPORTED_MODULE_29__["ActivationComponent"],
+                _Components_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_21__["UserProfileComponent"],
+                _Components_admin_manage_admin_manage_component__WEBPACK_IMPORTED_MODULE_34__["AdminManageComponent"],
+                _Components_error_dialog_error_dialog_component__WEBPACK_IMPORTED_MODULE_31__["ErrorDialogComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -1553,15 +2123,26 @@ var AppModule = /** @class */ (function () {
                 _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardModule"],
                 _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(routes),
+                _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(routes, { onSameUrlNavigation: 'reload' }),
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatToolbarModule"],
                 _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"],
                 ng_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_9__["NgMultiSelectDropDownModule"].forRoot(),
-                _angular_material_tabs__WEBPACK_IMPORTED_MODULE_10__["MatTabsModule"]
+                _angular_material_tabs__WEBPACK_IMPORTED_MODULE_10__["MatTabsModule"],
+                _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_12__["MatAutocompleteModule"],
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_11__["NgbPaginationModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_33__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatProgressSpinnerModule"]
             ],
-            providers: [_Services_movie_service__WEBPACK_IMPORTED_MODULE_19__["MovieService"], _Services_authentication_service__WEBPACK_IMPORTED_MODULE_20__["AuthenticationService"], _Services_preference_service__WEBPACK_IMPORTED_MODULE_25__["PreferenceService"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]]
+            providers: [
+                _Services_movie_service__WEBPACK_IMPORTED_MODULE_22__["MovieService"],
+                _Services_authentication_service__WEBPACK_IMPORTED_MODULE_23__["AuthenticationService"],
+                _Services_city_service__WEBPACK_IMPORTED_MODULE_30__["CityService"],
+                _Services_preference_service__WEBPACK_IMPORTED_MODULE_28__["PreferenceService"],
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_11__["NgbPaginationConfig"],
+                _Services_admin_service__WEBPACK_IMPORTED_MODULE_32__["AdmminService"]
+            ],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;

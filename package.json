@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node index.js",
-    "test": "mocha index-spec.js"
+    "start": "node index.js"
   },
   "engines": {
     "node": "10.7.0",
@@ -12,19 +11,19 @@
   },
   "dependencies": {
     "bluebird": "^3.5.2",
-    "chai": "^4.2.0",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "express": "~4.16.0",
     "express-jwt": "^5.3.1",
     "jsonwebtoken": "^8.3.0",
-    "mocha": "^5.2.0",
     "mongoose": "^5.2.15",
     "mongoose-paginate": "^5.0.3",
     "morgan": "~1.9.0",
+    "nodemailer": "^4.6.8",
     "nodemon": "^1.18.4",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "rand-token": "^0.4.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
   },
