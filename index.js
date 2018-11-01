@@ -23,7 +23,7 @@ app.listen(PORT, () => {
   console.log("Connected to port:" + PORT);
 });
 
-app.use(express.static(path.join(__dirname, "dist")));
+//app.use(express.static(path.join(__dirname, "dist")));
 
 app.use(cors())
 app.use(express.json());
@@ -44,10 +44,10 @@ app.use("/activate", activationRoute);
 app.use("/email", emailRoute);
 app.use("/showtimes", showtimesRoute);
 
-app.get('/*', function (req, res) {
+// app.get('/*', function (req, res) {
 
-  res.sendFile(path.join(__dirname, '/dist/index.html'));
-});
+//   res.sendFile(path.join(__dirname, '/dist/index.html'));
+// });
 
 //error handlers
 
