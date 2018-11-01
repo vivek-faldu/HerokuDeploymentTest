@@ -1,6 +1,6 @@
 const keys = require('../config/keys')
 const request = require('request-promise')
-import Cinema from '../models/CinemaDetail'
+const Cinema = require('../models/CinemaDetail')
 
 module.exports = {
 

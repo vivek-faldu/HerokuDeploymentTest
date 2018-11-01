@@ -1,6 +1,6 @@
 const keys = require('../config/keys')
 const request = require('request-promise')
-import City from '../models/City'
+const City = require('../models/City')
 
 module.exports = {
 

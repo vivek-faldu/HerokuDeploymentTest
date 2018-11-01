@@ -11,4 +11,4 @@ let City = new Schema({
 
 });
 
-export default mongoose.model('city', City);
+module.exports = mongoose.model('city', City);
